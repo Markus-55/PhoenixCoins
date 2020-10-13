@@ -13,11 +13,17 @@
 <body>
 
   <!-- Navbar -->
+
+  <!-- Make a div tag with a class row -->
   <div class="row">
+    <!-- Make a div tag with a class column 12 -->
     <div class="col-12">
 
+      <!-- Make a nav tag with a class navbar navbar -->
       <nav class="navbar navbar">
+        <!-- Make a hyperlink tag with a class navbar-brand and a href attribute -->
         <a class="navbar-brand" href="#">
+          <!-- Make a image tag with the source of the coinmarketcap picture -->
           <img src="Coinmarketcap.png">
         </a>
       </nav>
@@ -25,22 +31,73 @@
     </div>
   </div>
 
+  <!-- Heading -->
+
+  <!-- Make a heading with an id heading -->
   <h1 id="heading">Top 100 Cryptocurrencies</h1>
 
 
   <!-- Tabs -->
+
+  <!-- Make a div tag with a class row -->
   <div class="row">
+    <!-- Make a div tag with a class column 12 -->
     <div class="col-12">
 
+       <!-- Make a div tag with the id tabs and class nav nav-tabs -->
        <div id="tabs" class="nav nav-tabs">
+         <!-- Make a hyperlink tag with a class nav-link active and an href attribute -->
         <a class="nav-link active" href="#">Cryptocurrencies</a>
       </div>
 
     </div>
   </div>
 
-  <h2 id="price"></h2>
+  <!-- Table -->
 
+  <!-- Make a table tag with a class table -->
+  <table class="table">
+  <!-- Make a table head tag -->
+  <thead>
+    <!-- Make a table row tag -->
+    <tr>
+      <!-- Make a header cell with the scope col and the text Rank -->
+      <th scope="col">Rank</th>
+      <!-- Make a header cell with the scope col and the text Name -->
+      <th scope="col">Name</th>
+      <!-- Make a header cell with the scope col and the text Market Cap -->
+      <th scope="col">Market Cap</th>
+      <!-- Make a header cell with the scope col and the text Price -->
+      <th scope="col">Price</th>
+      <!-- Make a header cell with the scope col and the text Volume (24) -->
+      <th scope="col">Volum (24h)</th>
+      <!-- Make a header cell with the scope col and the text circulating supply -->
+      <th scope="col">Circulating Supply</th>
+      <!-- Make a header cell with the scope col and the text Change (24h) -->
+      <th scope="col">Change (24h)</th>
+    </tr>
+  </thead>
+  <!-- Make a table body tag -->
+  <tbody>
+    <!-- Make a table row with an id table_row  -->
+    <tr id="table_row">
+      <!-- Make a header cell with the id rank -->
+      <th scope="row" id="rank"></th>
+      <!-- Make a data cell with the id name -->
+      <td id="name"></td>
+      <!-- Make a data cell with the id market_cap -->
+      <td id="market_cap"></td>
+      <!-- Make a data cell with the id price -->
+      <td id="price"></td>
+      <!-- Make a data cell with the id volume_24 -->
+      <td id="volume_24"></td>
+      <!-- Make a data cell with the id circulating_supply -->
+      <td id="circulating_supply"></td>
+      <!-- Make a data cell with the id change_24 -->
+      <td id="change_24"></td>
+    </tr>
+  </tbody>
+  </table>
 
 
 
