@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="main.js"></script>
 </head>
 
 <body>
@@ -24,7 +23,7 @@
         <!-- Make a hyperlink tag with a class navbar-brand and a href attribute -->
         <a class="navbar-brand" href="#">
           <!-- Make a image tag with the source of the coinmarketcap picture -->
-          <img src="Coinmarketcap.png">
+          <img id="img1" src="Coinmarketcap.png">
         </a>
       </nav>
 
@@ -33,9 +32,18 @@
 
   <!-- Heading -->
 
-  <!-- Make a heading with an id heading -->
-  <h1 id="heading">Top 100 Cryptocurrencies</h1>
+  <!-- Make a div tag with a class row -->
+  <div class="row">
+    <!-- Make a div tag with a class column 12 -->
+    <div class="col-12">
 
+      <!-- Make a heading with an id heading1 -->
+      <h1 id="heading1">Top 100 Cryptocurrencies</h1>
+      <!-- Make a heading with a class text-muted and an id heading2 -->
+      <h6 class="text-muted" id="heading2">Ivan on Tech Academy bootcamp sample project</h6>
+
+    </div>
+  </div>
 
   <!-- Tabs -->
 
@@ -44,9 +52,9 @@
     <!-- Make a div tag with a class column 12 -->
     <div class="col-12">
 
-       <!-- Make a div tag with the id tabs and class nav nav-tabs -->
-       <div id="tabs" class="nav nav-tabs">
-         <!-- Make a hyperlink tag with a class nav-link active and an href attribute -->
+      <!-- Make a div tag with the id tabs and class nav nav-tabs -->
+      <div id="tabs" class="nav nav-tabs">
+        <!-- Make a hyperlink tag with a class nav-link active and an href attribute -->
         <a class="nav-link active" href="#">Cryptocurrencies</a>
       </div>
 
@@ -55,54 +63,44 @@
 
   <!-- Table -->
 
-  <!-- Make a table tag with a class table -->
-  <table class="table">
-  <!-- Make a table head tag -->
-  <thead>
-    <!-- Make a table row tag -->
-    <tr>
-      <!-- Make a header cell with the scope col and the text Rank -->
-      <th scope="col">Rank</th>
-      <!-- Make a header cell with the scope col and the text Name -->
-      <th scope="col">Name</th>
-      <!-- Make a header cell with the scope col and the text Market Cap -->
-      <th scope="col">Market Cap</th>
-      <!-- Make a header cell with the scope col and the text Price -->
-      <th scope="col">Price</th>
-      <!-- Make a header cell with the scope col and the text Volume (24) -->
-      <th scope="col">Volum (24h)</th>
-      <!-- Make a header cell with the scope col and the text circulating supply -->
-      <th scope="col">Circulating Supply</th>
-      <!-- Make a header cell with the scope col and the text Change (24h) -->
-      <th scope="col">Change (24h)</th>
-    </tr>
-  </thead>
-  <!-- Make a table body tag -->
-  <tbody>
-    <!-- Make a table row with an id table_row  -->
-    <tr id="table_row">
-      <!-- Make a header cell with the id rank -->
-      <th scope="row" id="rank"></th>
-      <!-- Make a data cell with the id name -->
-      <td id="name"></td>
-      <!-- Make a data cell with the id market_cap -->
-      <td id="market_cap"></td>
-      <!-- Make a data cell with the id price -->
-      <td id="price"></td>
-      <!-- Make a data cell with the id volume_24 -->
-      <td id="volume_24"></td>
-      <!-- Make a data cell with the id circulating_supply -->
-      <td id="circulating_supply"></td>
-      <!-- Make a data cell with the id change_24 -->
-      <td id="change_24"></td>
-    </tr>
-  </tbody>
-  </table>
+  <!-- Make a div tag with a class row -->
+  <div class="row">
+    <!-- Make a div tag with a class column 12 -->
+    <div class="col-12">
+
+      <!-- Make a table tag with a class table -->
+      <table class="table" id="coinTable">
+
+        <!-- Make a table row tag -->
+        <tr>
+          <!-- Make a header cell with the scope col and the text Rank -->
+          <th scope="col">Rank</th>
+          <!-- Make a header cell with the scope col -->
+          <th scope="col"></th>
+          <!-- Make a header cell with the scope col and the text Name -->
+          <th scope="col">Name</th>
+          <!-- Make a header cell with the scope col and the text Market Cap -->
+          <th scope="col">Market Cap</th>
+          <!-- Make a header cell with the scope col and the text Price -->
+          <th scope="col">Price</th>
+          <!-- Make a header cell with the scope col and the text Volume (24) -->
+          <th scope="col">Volum (24h)</th>
+          <!-- Make a header cell with the scope col and the text circulating supply -->
+          <th scope="col">Circulating Supply</th>
+          <!-- Make a header cell with the scope col and the text Change (24h) -->
+          <th scope="col">Change (24h)</th>
+        </tr>
+      </table>
+
+    </div>
+  </div>
 
 
 
 
 
+
+  <script src="main.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
