@@ -1,10 +1,29 @@
-#heading {
+#heading1 {
   margin-top: 4%;
   margin-left: 38%;
+
+}
+
+#heading2 {
+  margin-top: 1%;
+  margin-left: 41%;
 }
 
 #tabs {
-  margin-top: 5%;
-  margin-left: 20%;
-  margin-right: 27%;
+  margin-top: 4%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#coinTable {
+  margin-left: 10%;
+  width: 80%;
+}
+
+#img1 {
+  width: 100%;
+}
+
+img {
+  width: 30px;
 }
