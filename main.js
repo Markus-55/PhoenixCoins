@@ -83,6 +83,20 @@ $(document).ready(function() {
                 $("<td></td>").html(priceChange24)
               )
             );
+
+            $("td:last").addClass("color")
+
+            function color() {
+
+              if(priceChange24 < 0) {
+                return $(".color").html(priceChange24).css("color", "red");
+              }
+              else {
+                return $(".color").html(priceChange24).css("color", "green");
+              }
+            }
+
+            color();
           }
         }
 
@@ -127,5 +141,9 @@ $(document).ready(function() {
 
         })
       })
+
+
+
+
 
 });
