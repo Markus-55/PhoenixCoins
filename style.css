@@ -1,7 +1,7 @@
 #heading1 {
   margin-top: 4%;
   margin-left: 38%;
-
+  color: white;
 }
 
 #heading2 {
@@ -21,9 +21,40 @@
 }
 
 #img1 {
-  width: 100%;
+  width: 40%;
+
+}
+
+#imgRow {
+  background-color: #141414
 }
 
 img {
   width: 30px;
+}
+
+#totalMarketCap, #markets, #totalVolume, #btcDominance {
+  display: inline;
+  margin-left: 4%;
+  font-size: 14px;
+}
+
+#statistics {
+  margin-left: 26%;
+}
+
+body {
+  background-color: #17171a;
+}
+
+tr {
+  background-color: #18181a;
+}
+
+tr, p {
+  color: white;
+}
+
+hr {
+  background-color: black;
 }
