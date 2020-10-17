@@ -1,11 +1,21 @@
-// Make the value of url = the coingecko API
-let url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h";
+// Make a value of baseUrl = to the coingecko API
+var baseUrl = "https://api.coingecko.com/api/v3";
+
+// Make a value coinPrice = to coins markets link
+var coinPrice = "/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h";
+// The coin price url = to base url + coin price
+var coinPriceUrl = baseUrl + coinPrice;
+
+// Make a value globalCrypto = to global link
+var globalCrypto = "/global";
+// The global url = to base url + global crypto
+var globalUrl = baseUrl + globalCrypto;
 
 // Ready the document
 $(document).ready(function() {
 
-  // Fetch the document
-  fetch(url)
+  // Fetch the coin price url
+  fetch(coinPriceUrl)
     // Then make a function with the result as an argument
     .then(res => {
 
@@ -82,5 +92,40 @@ $(document).ready(function() {
       })
 
     })
+
+    // Fetch the global url
+    fetch(globalUrl)
+      // Then make a function with the result as the argument
+      .then(res => {
+        // Take the result and convert it to readable json
+        // Then make a finction with the data as the argument
+        res.json().then(data => {
+
+          // The constant variable totalMarketCap = total market cap data in usd formated to usd
+          const totalMarketCap = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+          }).format(data.data.total_market_cap.usd);
+          // The constant variable markets = data markets
+          const markets = data.data.markets;
+          // The constant variable totalVolume = total volume data in usd formated to usd
+          const totalVolume = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+          }).format(data.data.total_volume.usd);
+          // The constant variable btcDominance = market market cap percentage of bitcoin
+          let btcDominance = data.data.market_cap_percentage.btc.toFixed(1);
+
+          // Replace the html of the id totalMarketCap with the total market cap
+          $("#totalMarketCap").html("Market Cap:" + " " + totalMarketCap);
+          // Replace the html of the id markets with the markets
+          $("#markets").html("Markets:" + " " + markets);
+          // Replace the html of the id totalVolume with the total volume
+          $("#totalVolume").html("Volume:" + " " + totalVolume);
+          // Replace the html of the id btcDominance with the market cap percentage of bitcoin
+          $("#btcDominance").html("BTC Dominance:" + " " + btcDominance + "%");
+
+        })
+      })
 
 });
