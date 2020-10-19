@@ -14,6 +14,41 @@ var globalUrl = baseUrl + globalCrypto;
 // Ready the document
 $(document).ready(function() {
 
+  // Fetch the global url
+  fetch(globalUrl)
+    // Then make a function with the result as the argument
+    .then(res => {
+      // Take the result and convert it to readable json
+      // Then make a finction with the data as the argument
+      res.json().then(data => {
+
+        // The constant variable totalMarketCap = total market cap data in usd formated to usd
+        var totalMarketCap = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(data.data.total_market_cap.usd);
+        // The constant variable markets = data markets
+        var markets = data.data.markets;
+        // The constant variable totalVolume = total volume data in usd formated to usd
+        var totalVolume = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(data.data.total_volume.usd);
+        // The constant variable btcDominance = market market cap percentage of bitcoin
+        var btcDominance = data.data.market_cap_percentage.btc.toFixed(1);
+
+        // Replace the html of the id totalMarketCap with the total market cap
+        $("#totalMarketCap").html("Market Cap:" + " " + totalMarketCap);
+        // Replace the html of the id markets with the markets
+        $("#markets").html("Markets:" + " " + markets);
+        // Replace the html of the id totalVolume with the total volume
+        $("#totalVolume").html("Volume:" + " " + totalVolume);
+        // Replace the html of the id btcDominance with the market cap percentage of bitcoin
+        $("#btcDominance").html("BTC Dominance:" + " " + btcDominance + "%");
+
+      })
+    });
+
   // Fetch the coin price url
   fetch(coinPriceUrl)
     // Then make a function with the result as an argument
@@ -24,7 +59,7 @@ $(document).ready(function() {
       res.json().then(data => {
 
         // Make a constant variable coinTable = to the id coinTable
-        const coinTable = $("#coinTable");
+        var coinTable = $("#coinTable");
 
         // Make a function with the id and value as an argument
         function cryptos() {
@@ -32,34 +67,34 @@ $(document).ready(function() {
           for (let i = 0; i < 100; i++) {
 
             // Make a constant variable rank = to the market cap rank
-            const rank = data[i].market_cap_rank;
+            var rank = data[i].market_cap_rank;
 
             // Create a new img element
-            let logo = new Image();
+            var logo = new Image();
             // Set the sourse path
             logo.src = data[i].image;
 
             // Make a constant variable name = to the name
-            const name = data[i].name;
+            var name = data[i].name;
             // Make a constant variable priceUsd = to the current price formated into USD
-            const priceUsd = new Intl.NumberFormat('en-US', {
+            var priceUsd = new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'USD'
             }).format(data[i].current_price);
             // Make a constant variable marketCapPrice = to the market cap formated into USD
-            const marketCapPrice = new Intl.NumberFormat('en-US', {
+            var marketCapPrice = new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'USD'
             }).format(data[i].market_cap);
             // Make a constant variable volumeUsd = to the total volume formated into USD
-            const volumeUsd = new Intl.NumberFormat('en-US', {
+            var volumeUsd = new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'USD'
             }).format(data[i].total_volume);
             // Make a constant variable circulatingSupply = to the circulating supply
-            const circulatingSupply = new Intl.NumberFormat().format(data[i].circulating_supply);
+            var circulatingSupply = new Intl.NumberFormat().format(data[i].circulating_supply);
             // Make a constant variable priceChange24 = to the 24h price change
-            const priceChange24 = data[i].price_change_24h;
+            var priceChange24 = data[i].price_change_percentage_24h_in_currency.toFixed(2);
 
             // Append this to the coin table
             coinTable.append(
@@ -79,24 +114,24 @@ $(document).ready(function() {
                 $("<td></td>").html(volumeUsd),
                 // Replace the html of the table data to the circulating supply
                 $("<td></td>").html(circulatingSupply),
-                // Replace the html of the table data to the 24h price change
-                $("<td></td>").html(priceChange24)
+                // Call function color
+                color()
               )
             );
 
-            $("td:last").addClass("color")
-
+            // Make a function color
             function color() {
 
+              // If the 24h price change < 0
               if(priceChange24 < 0) {
-                return $(".color").html(priceChange24).css("color", "red");
+                // Returns the data table with an id color replaced by the html to the 24h price change in red
+                return $("<td id=`#color`></td>").html(priceChange24).css("color", "red");
               }
+              // else, returns the data table with an id color replaced by the html to the 24h price change in green
               else {
-                return $(".color").html(priceChange24).css("color", "green");
+                return $("<td id=`#color`></td>").html(priceChange24).css("color", "green");
               }
             }
-
-            color();
           }
         }
 
@@ -106,44 +141,5 @@ $(document).ready(function() {
       })
 
     })
-
-    // Fetch the global url
-    fetch(globalUrl)
-      // Then make a function with the result as the argument
-      .then(res => {
-        // Take the result and convert it to readable json
-        // Then make a finction with the data as the argument
-        res.json().then(data => {
-
-          // The constant variable totalMarketCap = total market cap data in usd formated to usd
-          const totalMarketCap = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-          }).format(data.data.total_market_cap.usd);
-          // The constant variable markets = data markets
-          const markets = data.data.markets;
-          // The constant variable totalVolume = total volume data in usd formated to usd
-          const totalVolume = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-          }).format(data.data.total_volume.usd);
-          // The constant variable btcDominance = market market cap percentage of bitcoin
-          let btcDominance = data.data.market_cap_percentage.btc.toFixed(1);
-
-          // Replace the html of the id totalMarketCap with the total market cap
-          $("#totalMarketCap").html("Market Cap:" + " " + totalMarketCap);
-          // Replace the html of the id markets with the markets
-          $("#markets").html("Markets:" + " " + markets);
-          // Replace the html of the id totalVolume with the total volume
-          $("#totalVolume").html("Volume:" + " " + totalVolume);
-          // Replace the html of the id btcDominance with the market cap percentage of bitcoin
-          $("#btcDominance").html("BTC Dominance:" + " " + btcDominance + "%");
-
-        })
-      })
-
-
-
-
 
 });
