@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
 /* Id of first heading */
 #heading1 {
   margin-top: 4%;
   margin-left: 38%;
   color: white;
-  font-family: 'Fugaz One';
+  font-family: 'Racing Sans One';
 }
 
 /* Id of second heading */
@@ -15,7 +15,7 @@
   margin-top: 1%;
   margin-left: 41%;
   color: #141414;
-  font-family: 'Fugaz One';
+  font-family: 'Racing Sans One';
 }
 
 /* Id of the tabs */

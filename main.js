@@ -39,16 +39,22 @@ $(document).ready(function() {
         // Make a variable btcDominance = market market cap percentage of bitcoin
         var btcDominance = data.data.market_cap_percentage.btc.toFixed(1);
 
-        // Replace the html of the id marketsNumb with the markets
-        $("#marketsNumb").html(markets);
-        // Replace the html of the id activeCryptosNumb with the Active Cryptocurrencies
-        $("#activeCryptosNumb").html(activeCryptos)
-        // Replace the html of the id totalMarketCapNumb with the total market cap
-        $("#totalMarketCapNumb").html(totalMarketCap);
-        // Replace the html of the id totalVolumeNumb with the total volume
-        $("#totalVolumeNumb").html(totalVolume);
-        // Replace the html of the id btcDominanceNumb with the market cap percentage of bitcoin
-        $("#btcDominanceNumb").html(`${btcDominance} %`);
+        // Make a function upperStats with an id and a value
+        function upperStats(id, value) {
+          // Replace the html of the id with the value
+          $(id).html(value);
+        }
+
+        // call the function upperStats with marketsNumb as the id and markets as the value
+        upperStats("#marketsNumb", markets);
+        // call the function upperStats with activeCryptosNumb as the id and activeCryptos as the value
+        upperStats("#activeCryptosNumb", activeCryptos);
+        // call the function upperStats with totalMarketCapNumb as the id and totalMarketCap as the value
+        upperStats("#totalMarketCapNumb", totalMarketCap);
+        // call the function upperStats with totalVolumeNumb as the id and totalVolume as the value
+        upperStats("#totalVolumeNumb", totalVolume);
+        // call the function upperStats with btcDominanceNumb as the id and btcDominance as the value
+        upperStats("#btcDominanceNumb", btcDominance + " " + "%");
       })
     });
 
