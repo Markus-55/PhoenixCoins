@@ -13,8 +13,8 @@
 
   <!-- Navbar -->
 
-  <!-- Make a div tag with a class row -->
-  <div id="imgRow" class="row">
+  <!-- Make a div tag with an id navRow and a class row -->
+  <div id="navRow" class="row">
     <!-- Make a div tag with a class column 12 -->
     <div class="col-12">
 
@@ -22,29 +22,43 @@
       <nav class="navbar navbar">
         <!-- Make a hyperlink tag with a class navbar-brand and a href attribute -->
         <a class="navbar-brand" href="#">
-          <!-- Make a image tag with the source of the coinmarketcap picture -->
-          <img id="img1" src="Coinmarketcap.png">
+          <!-- Make a image tag with an id img1 and the logo -->
+          <img id="img1" src="PhoenixCoins.png">
+          <!-- Make a heading 1 tag with an id navText -->
+          <h1 id="navText">Phoenix Coins</h1>
         </a>
       </nav>
 
     </div>
   </div>
 
-  <hr>
+  <!-- Make an hr tag with the id hr1 -->
+  <hr id="hr1">
 
-  <!-- Make a div tag with a class row -->
+  <!-- Make a div tag with an id statistics and a class row -->
   <div id="statistics" class="row">
     <!-- Make a div tag with a class column 12 -->
     <div class="col-12">
 
-      <!-- Make a paragraph tag with the total market cap as an id -->
-      <p id="totalMarketCap"></p>
-      <!-- Make a paragraph tag with the total volume as an id -->
-      <p id="totalVolume"></p>
       <!-- Make a paragraph tag with the markets as an id -->
-      <p id="markets"></p>
+      <p id="marketsText">Markets:</p>
+      <p id="marketsNumb"></p>
+
+      <!-- Make a paragraph tag with the active cryptocurrencies as an id -->
+      <p id="activeCryptosText">Active Cryptocurrencies:</p>
+      <p id="activeCryptosNumb"></p>
+
+      <!-- Make a paragraph tag with the total market cap as an id -->
+      <p id="totalMarketCapText">Market Cap:</p>
+      <p id="totalMarketCapNumb"></p>
+
+      <!-- Make a paragraph tag with the total volume as an id -->
+      <p id="totalVolumeText">Volume:</p>
+      <p id="totalVolumeNumb"></p>
+
       <!-- Make a paragraph tag with the bitcoin dominance as an id -->
-      <p id="btcDominance"></p>
+      <p id="btcDominanceText">BTC Dominance:</p>
+      <p id="btcDominanceNumb"></p>
 
     </div>
   </div>
@@ -60,8 +74,8 @@
 
       <!-- Make a heading with an id heading1 -->
       <h1 id="heading1">Top 100 Cryptocurrencies</h1>
-      <!-- Make a heading with a class text-muted and an id heading2 -->
-      <h6 class="text-muted" id="heading2">Ivan on Tech Academy bootcamp sample project</h6>
+      <!-- Make a heading 6 with an id heading2 -->
+      <h6 id="heading2">Ivan on Tech Academy bootcamp sample project</h6>
 
     </div>
   </div>
@@ -92,7 +106,6 @@
       <!-- Make a table tag with a class table -->
       <table class="table" id="coinTable">
 
-        <!-- Make a table row tag -->
         <tr>
           <!-- Make a header cell with the scope col and the text Rank -->
           <th scope="col">Rank</th>

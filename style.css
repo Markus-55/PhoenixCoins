@@ -1,60 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+/* Id of first heading */
 #heading1 {
   margin-top: 4%;
   margin-left: 38%;
   color: white;
+  font-family: 'Fugaz One';
 }
 
+/* Id of second heading */
 #heading2 {
   margin-top: 1%;
   margin-left: 41%;
+  color: #141414;
+  font-family: 'Fugaz One';
 }
 
+/* Id of the tabs */
 #tabs {
   margin-top: 4%;
   margin-left: 10%;
   margin-right: 10%;
 }
 
+/* Id of the coin table */
 #coinTable {
   margin-left: 10%;
   width: 80%;
 }
 
+/* id of the first image and the nav text in the same line */
+#img1, #navText {
+  display: inline;
+}
+
+/* Id of the first image */
 #img1 {
-  width: 40%;
-
+  width: 20%;
 }
 
-#imgRow {
-  background-color: #141414
+/* Id of the nav row */
+#navRow {
+  background-color: #213d4a;
 }
 
+/* Id of the first hr */
+#hr1 {
+  margin-top: 0%;
+}
+
+/* Id of the nav text */
+#navText {
+  font-family: 'Black Ops One';
+  color: black;
+  padding-top: 15%;
+  margin-left: 10%;
+}
+
+/* The image tag */
 img {
   width: 30px;
 }
 
-#totalMarketCap, #markets, #totalVolume, #btcDominance {
+/* Upper crypto stats in the same line */
+#marketsText, #activeCryptosText ,#totalMarketCapText, #totalVolumeText, #btcDominanceText  {
   display: inline;
   margin-left: 4%;
   font-size: 14px;
 }
 
+/* Upper crypto stats numbers in gold color */
+#marketsNumb, #activeCryptosNumb, #totalMarketCapNumb, #totalVolumeNumb, #btcDominanceNumb{
+  color: gold;
+  font-family: 'Gugi';
+}
+
+/* Id of the markets text and number in the same line */
+#marketsText, #marketsNumb {
+  display: inline;
+}
+
+/* Id of the active cryptos text and number in the same line */
+#activeCryptosText, #activeCryptosNumb {
+  display: inline;
+}
+
+/* Id of the total market cap text and number in the same line */
+#totalMarketCapText, #totalMarketCapNumb {
+  display: inline;
+}
+/* Id of the total volume text and number in the same line */
+#totalVolumeText, #totalVolumeNumb {
+  display: inline;
+}
+
+/* Id of the bitcoin dominance text and number in the same line */
+#btcDominanceText, #btcDominanceNumb {
+  display: inline;
+}
+
+/* Id of the statistics */
 #statistics {
-  margin-left: 26%;
+  margin-left: 15%;
 }
 
+/* The body background color */
 body {
-  background-color: #17171a;
+  background-color: #35424a;
 }
 
+/* The table row */
 tr {
-  background-color: #18181a;
-}
-
-tr, p {
+  background-color: #41555e;
+  font-family: 'Gugi';
   color: white;
 }
 
+/* The table row color and font family */
+p {
+  color: white;
+  font-family: 'Gugi';
+}
+
+/* The hr background color */
 hr {
   background-color: black;
 }
