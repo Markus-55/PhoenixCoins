@@ -1,3 +1,9 @@
+// Make a constant variable usd object = currency: USD
+const usdObj = {
+ style: 'currency',
+ currency: 'USD'
+};
+
 // Make a value of baseUrl = to the coingecko API
 var baseUrl = "https://api.coingecko.com/api/v3";
 
@@ -19,25 +25,20 @@ $(document).ready(function() {
     // Then make a function with the result as the argument
     .then(res => {
       // Take the result and convert it to readable json
-      // Then make a finction with the data as the argument
+      // Then make a function with the data as an argument
       res.json().then(data => {
 
         // Make a variable markets = data markets
-        var markets = data.data.markets;
-        // Make a variable activeCryptos = active cryptocurrencies
-        var activeCryptos = new Intl.NumberFormat().format(data.data.active_cryptocurrencies);
-        // Make a variable totalMarketCap = total market cap data in usd formated to usd
-        var totalMarketCap = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD'
-        }).format(data.data.total_market_cap.usd);
-        // Make a variable totalVolume = total volume data in usd formated to usd
-        var totalVolume = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD'
-        }).format(data.data.total_volume.usd);
+        let markets = data.data.markets;
+        // Make a variable activeCryptos = formated active cryptocurrencies
+        let activeCryptos = new Intl.NumberFormat().format(data.data.active_cryptocurrencies);
+        // Make a variable totalMarketCap = total market cap data in usd
+        let totalMarketCap = data.data.total_market_cap.usd;
+
+        // Make a variable totalVolume = total volume data in usd
+        let totalVolume = data.data.total_volume.usd;
         // Make a variable btcDominance = market market cap percentage of bitcoin
-        var btcDominance = data.data.market_cap_percentage.btc.toFixed(1);
+        let btcDominance = data.data.market_cap_percentage.btc.toFixed(1);
 
         // Make a function upperStats with an id and a value
         function upperStats(id, value) {
@@ -49,10 +50,10 @@ $(document).ready(function() {
         upperStats("#marketsNumb", markets);
         // call the function upperStats with activeCryptosNumb as the id and activeCryptos as the value
         upperStats("#activeCryptosNumb", activeCryptos);
-        // call the function upperStats with totalMarketCapNumb as the id and totalMarketCap as the value
-        upperStats("#totalMarketCapNumb", totalMarketCap);
-        // call the function upperStats with totalVolumeNumb as the id and totalVolume as the value
-        upperStats("#totalVolumeNumb", totalVolume);
+        // call the function upperStats with totalMarketCapNumb as the id and totalMarketCap as the value formated to USD
+        upperStats("#totalMarketCapNumb", totalMarketCap.toLocaleString("en-US", usdObj));
+        // call the function upperStats with totalVolumeNumb as the id and totalVolume as the value formated to USD
+        upperStats("#totalVolumeNumb", totalVolume.toLocaleString("en-US", usdObj));
         // call the function upperStats with btcDominanceNumb as the id and btcDominance as the value
         upperStats("#btcDominanceNumb", btcDominance + " " + "%");
       })
@@ -68,59 +69,51 @@ $(document).ready(function() {
       res.json().then(data => {
 
         // Make a variable coinTable = to the id coinTable
-        var coinTable = $("#coinTable");
+        let coinTable = $("#coinTable");
 
-        // Make a function with the id and value as an argument
+        // Make a function cryptos
         function cryptos() {
-          // The loop starts at i and ends at the maximum length of data
+          // The loop starts at i and ends at 100
+          // every time there is a new loop add 1 to i
           for (let i = 0; i < 100; i++) {
 
             // Make a variable rank = to the market cap rank
-            var rank = data[i].market_cap_rank;
+            let rank = data[i].market_cap_rank;
 
             // Create a new img element
-            var logo = new Image();
+            let logo = new Image();
             // Set the sourse path
             logo.src = data[i].image;
 
-            // Make a variable name = to the name
-            var name = data[i].name;
+            // Make a variable name = to the name of the coins
+            let name = data[i].name;
             // Make a variable priceUsd = to the current price formated into USD
-            var priceUsd = new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: 'USD'
-            }).format(data[i].current_price);
+            let priceUsd = data[i].current_price;
             // Make a variable marketCapPrice = to the market cap formated into USD
-            var marketCapPrice = new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: 'USD'
-            }).format(data[i].market_cap);
+            let marketCapPrice = data[i].market_cap;
             // Make a variable volumeUsd = to the total volume formated into USD
-            var volumeUsd = new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: 'USD'
-            }).format(data[i].total_volume);
-            // Make a variable circulatingSupply = to the circulating supply
-            var circulatingSupply = new Intl.NumberFormat().format(data[i].circulating_supply);
+            let volumeUsd = data[i].total_volume;
+            // Make a variable circulatingSupply = to the formated circulating supply
+            let circulatingSupply = new Intl.NumberFormat().format(data[i].circulating_supply);
             // Make a variable priceChange24 = to the 24h price change
-            var priceChange24 = data[i].price_change_percentage_24h_in_currency.toFixed(2);
+            let priceChange24 = data[i].price_change_percentage_24h_in_currency.toFixed(2);
 
             // Append this to the coin table
             coinTable.append(
               // Append this to the table row
               $("<tr></tr>").append(
-                // Replace the html of the table data to the rank
+                // Replace the html of the table data to the rank with the color black
                 $("<th></th>").html(rank).css("color", "Black"),
                 // Replace the html of the table data to the logo
                 $("<td></td>").html(logo),
-                // Replace the html of the table data to the name with color orange
+                // Replace the html of the table data to the name with the color orange
                 $("<td></td>").html(name).css("color", "#ff9d00"),
-                // Replace the html of the table data to the market cap price with color orange
-                $("<td></td>").html(marketCapPrice).css("color", "#ff9d00"),
-                // Replace the html of the table data to the usd price with color orange
-                $("<td></td>").html(priceUsd).css("color", "#ff9d00"),
-                // Replace the html of the table data to the usd volume with color orange
-                $("<td></td>").html(volumeUsd).css("color", "#ff9d00"),
+                // Replace the html of the table data to the market cap price formated into english using the usdObj with the color orange
+                $("<td></td>").html((marketCapPrice).toLocaleString("en-US", usdObj)).css("color", "#ff9d00"),
+                // Replace the html of the table data to the usd price formated into english using the usdObj with the color orange
+                $("<td></td>").html((priceUsd).toLocaleString("en-US", usdObj)).css("color", "#ff9d00"),
+                // Replace the html of the table data to the usd volume formated into english using the usdObj with the color orange
+                $("<td></td>").html((volumeUsd).toLocaleString("en-US", usdObj)).css("color", "#ff9d00"),
                 // Replace the html of the table data to the circulating supply with color orange
                 $("<td></td>").html(circulatingSupply).css("color", "#ff9d00"),
                 // Call function color

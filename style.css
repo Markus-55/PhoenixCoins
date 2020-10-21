@@ -111,20 +111,20 @@ body {
   background-color: #35424a;
 }
 
-/* The table row */
+/* The table row tag */
 tr {
   background-color: #41555e;
   font-family: 'Gugi';
   color: white;
 }
 
-/* The table row color and font family */
+/* The paragraph tag */
 p {
   color: white;
   font-family: 'Gugi';
 }
 
-/* The hr background color */
+/* The hr tag background color */
 hr {
   background-color: black;
 }
