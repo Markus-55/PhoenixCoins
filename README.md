@@ -13,7 +13,7 @@ It's a project assignment from the Bootcamp on Ivan on Tech Blockchain Academy.
 # Contributors
 
 * My Mentor: Ivo G/Dadogg80
-* Markus Bielaszka
+* Markus Bielaszka/Markus-55
 
 # Made by:
 
