@@ -93,10 +93,10 @@ $(document).ready(function() {
             let marketCapPrice = data[i].market_cap;
             // Make a variable volumeUsd = to the total volume formated into USD
             let volumeUsd = data[i].total_volume;
-            // Make a variable circulatingSupply = to the formated circulating supply
+            // Make a variable circulatingSupply = to formated circulating supply
             let circulatingSupply = new Intl.NumberFormat().format(data[i].circulating_supply);
-            // Make a variable priceChange24 = to the 24h price change
-            let priceChange24 = data[i].price_change_percentage_24h_in_currency.toFixed(2);
+            // Make a variable priceChange24 = to formated 24h price change
+            let priceChange24 = new Intl.NumberFormat().format(data[i].price_change_percentage_24h_in_currency);
 
             // Append this to the coin table
             coinTable.append(
